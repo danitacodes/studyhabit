@@ -1,7 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
-const path = require("path");
 
 const userRoutes = require("./routes/userRoutes");
 const studyRoutes = require("./routes/studyRoutes");
@@ -17,6 +16,15 @@ connectDB();
 app.use("/api/users", userRoutes);
 app.use("/api/study", studyRoutes);
 app.use(errorHandler);
+
+if (process.env.NODE_ENV === "production") {
+  const path = require("path");
+
+  app.get("/", (req, res) => {
+    app.use(express.static(path.resolve(__dirname, "client", "build")));
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
 
 const PORT = process.env.PORT || 5000;
 
