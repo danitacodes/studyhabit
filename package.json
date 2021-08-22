@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "An app to track studying",
   "main": "server.js",
+  "engines": {
+    "node":"14.16.1"
+  }
   "scripts": {
     "start": "node server/server",
     "server": "nodemon server/server",
