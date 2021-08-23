@@ -34,7 +34,7 @@ function EditStudy({ match, history }) {
 
   useEffect(() => {
     const fetching = async () => {
-      const { data } = await axios.get(`/study/${match.params.id}`);
+      const { data } = await axios.get(`/api/study/${match.params.id}`);
 
       setAssignment(data.assignment);
       setMinutes(data.minutes);
