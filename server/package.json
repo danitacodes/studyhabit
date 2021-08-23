@@ -7,11 +7,10 @@
     "node": "14.16.1"
   },
   "scripts": {
-    "start": "nodemon server/server",
+    "start": "node server.js",
     "server": "node server/server",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client"
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Danita Codes",
   "license": "ISC",
