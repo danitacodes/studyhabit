@@ -11,7 +11,6 @@ import {
   USER_UPDATE_FAIL,
 } from "./actionTypes";
 import axios from "axios";
-import { axiosInstance } from "../config";
 
 export const signin = (username, email, password) => async (dispatch) => {
   try {
@@ -23,8 +22,8 @@ export const signin = (username, email, password) => async (dispatch) => {
       },
     };
 
-    const { data } = await axiosInstance.post(
-      "/api/users/signin",
+    const { data } = await axios.post(
+      "https://studyhabit.herokuapp.com/api/users/signin",
       { username, email, password },
       config
     );
@@ -58,8 +57,8 @@ export const register = (username, email, password) => async (dispatch) => {
       },
     };
 
-    const { data } = await axiosInstance.post(
-      "/api/users/signup",
+    const { data } = await axios.post(
+      "https://studyhabit.herokuapp.com/api/users/signup",
       { username, email, password },
       config
     );
@@ -95,8 +94,8 @@ export const update = (user) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axiosInstance.post(
-      "api/users/profile",
+    const { data } = await axios.post(
+      "https://studyhabit.herokuapp.com/api/users/profile",
       user,
       config
     );

@@ -9,7 +9,6 @@ import {
 } from "../../actions/studyActions";
 import ErrorMessage from "../../components/ErrorMessage";
 import Loading from "../../components/Loading";
-import { axiosInstance } from "../../config";
 
 function EditStudy({ match, history }) {
   const [assignment, setAssignment] = useState();
@@ -35,7 +34,9 @@ function EditStudy({ match, history }) {
 
   useEffect(() => {
     const fetching = async () => {
-      const { data } = await axiosInstance.get(`/api/study/${match.params.id}`);
+      const { data } = await axios.get(
+        `https://studyhabit.herokuapp.com/api/study/${match.params.id}`
+      );
 
       setAssignment(data.assignment);
       setMinutes(data.minutes);
