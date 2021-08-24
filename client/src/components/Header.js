@@ -13,7 +13,13 @@ function Header() {
 
   const logoutHandler = () => {
     dispatch(logout());
-  };
+    if (!userInfo) {
+      history.pushState('/');
+    }
+  }, [
+    dispatch,
+    history
+  ];
 
   useEffect(() => {}, [userInfo]);
 
