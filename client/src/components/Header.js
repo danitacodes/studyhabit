@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import {} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { logout } from "../actions/userActions";
 
 function Header() {
@@ -11,15 +11,12 @@ function Header() {
 
   const { userInfo } = userLogin;
 
+  const history = useHistory();
+
   const logoutHandler = () => {
     dispatch(logout());
-    if (!userInfo) {
-      history.pushState('/');
-    }
-  }, [
-    dispatch,
-    history
-  ];
+    history.push("/");
+  };
 
   useEffect(() => {}, [userInfo]);
 
