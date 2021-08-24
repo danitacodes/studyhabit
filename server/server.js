@@ -13,8 +13,8 @@ app.use(express.json());
 dotenv.config();
 connectDB();
 
-app.use("/api/users", userRoutes);
-app.use("/api/study", studyRoutes);
+app.use("https://studyhabit.herokuapp.com/api/users", userRoutes);
+app.use("https://studyhabit.herokuapp.com/api/study", studyRoutes);
 app.use(errorHandler);
 
 // if (process.env.NODE_ENV === "production") {
