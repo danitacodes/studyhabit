@@ -13,6 +13,7 @@ import {
   DELETE_STUDY_FAIL,
 } from "./actionTypes";
 import axios from "axios";
+import { axiosInstance } from "../config";
 
 export const listStudy = () => async (dispatch, getState) => {
   try {
@@ -30,7 +31,7 @@ export const listStudy = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(`/api/study`, config);
+    const { data } = await axiosInstance.get(`/api/study`, config);
 
     dispatch({
       type: FETCH_STUDY_SUCCESS,
@@ -66,7 +67,7 @@ export const createStudyAction =
         },
       };
 
-      const { data } = await axios.post(
+      const { data } = await axiosInstance.post(
         `/api/study/create`,
         { assignment, minutes, subject, notes },
         config
@@ -106,7 +107,7 @@ export const updateStudyAction =
         },
       };
 
-      const { data } = await axios.put(
+      const { data } = await axiosInstance.put(
         `/api/study/${id}`,
         { assignment, minutes, subject, notes },
         config
@@ -144,7 +145,7 @@ export const deleteStudyAction = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.delete(`/api/study/${id}`, config);
+    const { data } = await axiosInstance.delete(`/api/study/${id}`, config);
 
     dispatch({
       type: DELETE_STUDY_SUCCESS,
