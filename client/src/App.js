@@ -1,6 +1,6 @@
 import "./App.css";
 import "bootswatch/dist/minty/bootstrap.min.css"; // Added this :boom:
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { Route } from "react-router-dom";
@@ -18,6 +18,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <main>
+          <Routes
           <Route exact path="/" component={Home} />
           <Route exact path="/signin" component={Signin} />
           <Route exact path="/profile" component={Profile} />
@@ -25,6 +26,7 @@ function App() {
           <Route exact path="/studypage" component={StudyPage} />
           <Route exact path="/study/:id" component={EditStudy} />
           <Route exact path="/studylist" component={StudyList} />
+          <Routes />
         </main>
         <Footer />
       </BrowserRouter>
