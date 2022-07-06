@@ -18,7 +18,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <main>
-          <Routes
+          <Routes>
           <Route exact path="/" component={Home} />
           <Route exact path="/signin" component={Signin} />
           <Route exact path="/profile" component={Profile} />
@@ -26,7 +26,7 @@ function App() {
           <Route exact path="/studypage" component={StudyPage} />
           <Route exact path="/study/:id" component={EditStudy} />
           <Route exact path="/studylist" component={StudyList} />
-          <Routes />
+          </Routes>
         </main>
         <Footer />
       </BrowserRouter>
